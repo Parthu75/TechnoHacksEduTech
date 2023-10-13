@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class MultipleChoiceQuiz {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Questions and answers
+        String[] questions = {
+                "1. What is the capital of France?",
+                "2. What is the largest planet in our solar system?",
+                "3. Who wrote 'Romeo and Juliet'?",
+                "4. What is the powerhouse of the cell?",
+                "5 .What is the Capital of Andhra Pradesh..?"
+        };
+
+        String[][] options = {
+                { "A. Berlin", "B. Madrid", "C. Paris", "D. Rome" },
+                { "A. Earth", "B. Jupiter", "C. Mars", "D. Venus" },
+                { "A. William Shakespeare", "B. Jane Austen", "C. Charles Dickens", "D. Mark Twain" },
+                { "A. Nucleus", "B. Mitochondria", "C. Ribosome", "D. Chloroplast" },
+                { "A.Amaravathi", "B.Vijaywada", "C.Kurnool", "D.Still Don't Know" }
+        };
+
+        char[] correctAnswers = { 'C', 'B', 'A', 'B', 'D' };
+        int score = 0;
+
+        System.out.println("Welcome to the Multiple Choice Quiz!");
+
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+
+            for (String option : options[i]) {
+                System.out.println(option);
+            }
+
+            System.out.print("Your answer: ");
+            char userAnswer = scanner.next().toUpperCase().charAt(0);
+
+            if (userAnswer == correctAnswers[i]) {
+                System.out.println("Correct!\n");
+                score++;
+            } else {
+                System.out.println("Incorrect. The correct answer is " + correctAnswers[i] + ".\n");
+            }
+        }
+
+        System.out.println("Quiz completed! Your score: " + score + " out of " + questions.length);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
